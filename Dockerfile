@@ -6,8 +6,8 @@ EXPOSE 80
 # Use the SDK image to build the app
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["Gateway-Test/Gateway.OnestVision.csproj", "Gateway.OnestVision/"]
-RUN dotnet restore "Gateway-Test/Gateway.OnestVision.csproj"
+COPY ["/Gateway.OnestVision.csproj", "Gateway.OnestVision/"]
+RUN dotnet restore "/Gateway.OnestVision.csproj"
 COPY . .
 WORKDIR "/"
 RUN dotnet build "Gateway.OnestVision.csproj" -c Release -o /app/build
