@@ -1,10 +1,10 @@
-# Use the official image as a parent image
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+# Use the official .NET 8 image as a parent image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 EXPOSE 80
 
-# Use the SDK image to build the app
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+# Use the .NET 8 SDK image to build the app
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Ajusta la ruta de acuerdo a tu estructura de proyecto
