@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Gateway.OnestVision")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb18192b3a5ad9411136b1503f5cf5cd5ae4cd46")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+308ef7fc079de22bc9a1ea218789082a22d5bdb7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Gateway.OnestVision")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Gateway.OnestVision")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

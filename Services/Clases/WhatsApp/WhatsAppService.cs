@@ -34,74 +34,89 @@ namespace WhatsApp_Aplication.Services
             var matches = Regex.Matches(stringWithPlaceholders, @"{{\d+}}");
             return matches.Count;
         }
-        public async Task<string> SendMessage(SendMessageServiceModel message)
+        public async Task<List<string>> SendMessage(SendMessageServiceModel message)
         {
-            string result;
+            List<string> result = new List<string>();
             try
             {
                 BusinessSettings businessSettings = GetBusinessSettings(message.Bussiness);
-
-                var messageModel = new SendMessageRequest
+                if (message.PhoneNumbers.Count == 0)
                 {
-                    messaging_product = "whatsapp",
-                    recipient_type = "individual",
-                    to = message.PersonPhone,
-                    type = "text",
-                    text = new TextMessage
+                    result.Add("Agrega el menos un numero de telefono");
+                    return result;
+                }
+                foreach (string phone in message.PhoneNumbers)
+                {
+                    var messageModel = new SendMessageRequest
                     {
-                        preview_url = false,
-                        body = message.Message
-                    }
-                };
+                        messaging_product = "whatsapp",
+                        recipient_type = "individual",
+                        to = phone,
+                        type = "text",
+                        text = new TextMessage
+                        {
+                            preview_url = false,
+                            body = message.Message
+                        }
+                    };
 
-                var json = JsonSerializer.Serialize(messageModel);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _whatsAppSettings.Token);
+                    var json = JsonSerializer.Serialize(messageModel);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _whatsAppSettings.Token);
 
-                var url = $"{_whatsAppSettings.ApiUrl}/{businessSettings.PhoneId}/messages";
+                    var url = $"{_whatsAppSettings.ApiUrl}/{businessSettings.PhoneId}/messages";
 
-                var response = await _httpClient.PostAsync(url, content);
-
-                result = await response.Content.ReadAsStringAsync();
+                    var response = await _httpClient.PostAsync(url, content);
+                    string responseStr = await response.Content.ReadAsStringAsync();
+                    result.Add(responseStr);
+                }
             }
             catch (Exception ex)
             {
-                result = ex.Message;
+                result.Add(ex.Message);
             }
 
             return result;
         }
-        public async Task<string> SendTemplate(SendTemplateServiceModel message)
+        public async Task<List<string>> SendTemplate(SendTemplateServiceModel message)
         {
-            string result;
+            List<string> result = new List<string>();
             try
             {
                 BusinessSettings businessSettings = GetBusinessSettings(message.Bussiness);
-                List<Parameter> parameters = new List<Parameter>();
-
-                foreach (string parameter in message.Parameters)
+                if (message.Users.Count == 0)
                 {
-                    Parameter param = new Parameter
-                    {
-                        type = "text",
-                        text = parameter
-                    };
-                    parameters.Add(param);
+                    result.Add("Agrega el menos un Usuario");
+                    return result;
                 }
 
-                var messageModel = new SendTemplateRequest
+                foreach (var user in message.Users)
                 {
-                    messaging_product = "whatsapp",
-                    to = message.PersonPhone,
-                    type = "template",
-                    template = new Template
+                    List<Parameter> parameters = new List<Parameter>();
+
+                    foreach (string parameter in user.Parameters)
                     {
-                        name = message.TemplateName,
-                        language = new Language
+                        Parameter param = new Parameter
                         {
-                            code = "es",
-                        },
-                        components = new List<RequestComponent>
+                            type = "text",
+                            text = parameter
+                        };
+                        parameters.Add(param);
+                    }
+
+                    var messageModel = new SendTemplateRequest
+                    {
+                        messaging_product = "whatsapp",
+                        to = user.PersonPhone,
+                        type = "template",
+                        template = new Template
+                        {
+                            name = message.TemplateName,
+                            language = new Language
+                            {
+                                code = "es",
+                            },
+                            components = new List<RequestComponent>
                         {
                             new RequestComponent
                             {
@@ -109,21 +124,24 @@ namespace WhatsApp_Aplication.Services
                                 parameters = parameters
                             }
                         }
-                    }
-                };
+                        }
+                    };
 
-                var json = JsonSerializer.Serialize(messageModel);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _whatsAppSettings.Token);
+                    var json = JsonSerializer.Serialize(messageModel);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _whatsAppSettings.Token);
 
-                var url = $"{_whatsAppSettings.ApiUrl}/{businessSettings.PhoneId}/messages";
+                    var url = $"{_whatsAppSettings.ApiUrl}/{businessSettings.PhoneId}/messages";
 
-                var response = await _httpClient.PostAsync(url, content);
-                result = await response.Content.ReadAsStringAsync();
+                    var response = await _httpClient.PostAsync(url, content);
+                    string responseStr = await response.Content.ReadAsStringAsync();
+                    result.Add(responseStr);
+                }
+                return result;
             }
             catch (Exception ex)
             {
-                result = ex.Message;
+                result.Add(ex.Message);
             }
             return result;
         }

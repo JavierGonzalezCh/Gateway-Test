@@ -23,7 +23,7 @@ namespace WhatsApp_Aplication.Controllers
             return await _whatsAppService.SendMessage(user);
         }
         [HttpPost("SendTemplate")]
-        public async Task<string> SendTemplate([FromBody] SendTemplateServiceModel user)
+        public async Task<List<string>> SendTemplate([FromBody] SendTemplateServiceModel user)
         {
             return await _whatsAppService.SendTemplate(user);
         }

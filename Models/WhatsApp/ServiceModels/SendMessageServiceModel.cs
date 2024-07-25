@@ -4,6 +4,6 @@ namespace Gateway.OnestVision.Models.WhatsApp.ServiceModels
     {
         public string Bussiness { set; get; }
         public string Message { set; get; }
-        public string PersonPhone { set; get; }
+        public List<string> PhoneNumbers { set; get; }
     }
 }
