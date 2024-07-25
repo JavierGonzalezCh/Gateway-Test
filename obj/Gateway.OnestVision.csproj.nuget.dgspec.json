@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\OnestVision\\Gateway.OnestVision\\Gateway.OnestVision.csproj": {}
+    "C:\\OnestVision\\Gateway\\Gateway-Test\\Gateway.OnestVision.csproj": {}
   },
   "projects": {
-    "C:\\OnestVision\\Gateway.OnestVision\\Gateway.OnestVision.csproj": {
+    "C:\\OnestVision\\Gateway\\Gateway-Test\\Gateway.OnestVision.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\OnestVision\\Gateway.OnestVision\\Gateway.OnestVision.csproj",
+        "projectUniqueName": "C:\\OnestVision\\Gateway\\Gateway-Test\\Gateway.OnestVision.csproj",
         "projectName": "Gateway.OnestVision",
-        "projectPath": "C:\\OnestVision\\Gateway.OnestVision\\Gateway.OnestVision.csproj",
+        "projectPath": "C:\\OnestVision\\Gateway\\Gateway-Test\\Gateway.OnestVision.csproj",
         "packagesPath": "C:\\Users\\javie\\.nuget\\packages\\",
-        "outputPath": "C:\\OnestVision\\Gateway.OnestVision\\obj\\",
+        "outputPath": "C:\\OnestVision\\Gateway\\Gateway-Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

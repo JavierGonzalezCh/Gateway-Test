@@ -1,0 +1,120 @@
+﻿# Visual Studio
+.vscode/
+.vs/
+*.code-workspace
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+*.userprefs
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio Code
+.vscode/*
+
+# Rider
+.idea/
+.idea/*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Various IDEs
+.idea/
+.idea/*
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+*.userprefs
+
+# Mono auto generated files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code directories
+.vscode/
+
+# Rider
+.idea/
+
+# macOS hidden files
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# DotNetCore
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Uncomment if you have tasks that create the static files folder
+# wwwroot/
+
+# Ignore JetBrains project-specific files
+.idea
+*.sln.iml
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# Resharper
+_ReSharper*
+*.DotSettings.user
+
+# DotNet
+.env
+*.pdb
+*.obj
+*.dll
+*.exe
+*.psess
+*.pyc
+
+# Docker
+docker-compose.override.yml
+.docker/

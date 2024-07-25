@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VHqYpxRNhyupVTvMEEFOsG9RtDKlh9lMc4QY+wVSIbP36+Zdo9Dbj4VqpTFVVNDm2YgvBB5ZqCWt/TDKg+00oA==",
+  "dgSpecHash": "/io0zZOjSMw6VYDqvr/s9qZhfh4jX4IyvraFfZYbxKBKp1VCDQ35gOZqviO36ysRz/KuFwGI+5L7xM/JjZklZQ==",
   "success": true,
-  "projectFilePath": "C:\\OnestVision\\Gateway.OnestVision\\Gateway.OnestVision.csproj",
+  "projectFilePath": "C:\\OnestVision\\Gateway\\Gateway-Test\\Gateway.OnestVision.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\javie\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\javie\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
